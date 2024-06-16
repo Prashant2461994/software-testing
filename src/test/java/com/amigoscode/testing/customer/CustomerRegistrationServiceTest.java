@@ -2,13 +2,11 @@ package com.amigoscode.testing.customer;
 
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 
 import java.util.Optional;
 import java.util.UUID;
 
-import org.assertj.core.api.Assert;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

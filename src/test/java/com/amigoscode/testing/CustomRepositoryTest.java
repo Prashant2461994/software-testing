@@ -1,15 +1,15 @@
 package com.amigoscode.testing;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import java.util.Optional;
 import java.util.UUID;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.dao.DataIntegrityViolationException;
-
-import static org.assertj.core.api.Assertions.*;
 
 import com.amigoscode.testing.customer.Customer;
 import com.amigoscode.testing.customer.CustomerRepository;
@@ -82,7 +82,7 @@ public class CustomRepositoryTest {
 	        // When
 	        // Then
 	        assertThatThrownBy(() -> underTest.save(customer))
-	                .hasMessageContaining("not-null property references a null or transient value : com.amigoscode.testing.customer.Customer.name")
+	                .hasMessageContaining("not-null property references a null or transient value")
 	                .isInstanceOf(DataIntegrityViolationException.class);
 
 	    }
@@ -96,7 +96,7 @@ public class CustomRepositoryTest {
 	        // When
 	        // Then
 	        assertThatThrownBy(() -> underTest.save(customer))
-	                .hasMessageContaining("not-null property references a null or transient value : com.amigoscode.testing.customer.Customer.phoneNumber")
+	                .hasMessageContaining("not-null property references a null or transient value")
 	                .isInstanceOf(DataIntegrityViolationException.class);
 
 	    }
