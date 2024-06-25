@@ -15,7 +15,12 @@ import org.springframework.dao.DataIntegrityViolationException;
 import com.amigoscode.testing.customer.Customer;
 import com.amigoscode.testing.customer.CustomerRepository;
 
-@DataJpaTest
+@DataJpaTest(
+        properties = {
+                "spring.jpa.properties.javax.persistence.validation.mode=none"
+        }
+)
+
 //@SpringBootTest
 public class CustomRepositoryTest {
 
@@ -77,7 +82,7 @@ public class CustomRepositoryTest {
 		Customer customer = new Customer(id, null, "0000");
 
 		
-	    underTest.save(customer);
+	   // underTest.save(customer);
 		
 		// When and Then
 		assertThatThrownBy(() -> underTest.save(customer))

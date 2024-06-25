@@ -36,6 +36,7 @@ public class Customer {
 	
   
 	@NotNull(message = "Phone number cannot be null")
+	@Column(nullable = false, length = 11)
 	private String phoneNumber;
 	
 	
