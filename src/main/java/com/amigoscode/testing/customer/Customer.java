@@ -2,12 +2,17 @@ package com.amigoscode.testing.customer;
 
 import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+
+
+
 @Entity
 public class Customer {
-
 	
 	public Customer(UUID id, String name, String phoneNumber) {
 		super();
@@ -23,10 +28,14 @@ public class Customer {
 	@Id
 	private UUID id;
 	
-	@NotBlank
+
+	
+	@NotNull(message = "name cannot be null")
+	@Column(nullable = false, length = 255)
 	private String name;
 	
-	@NotBlank
+  
+	@NotNull(message = "Phone number cannot be null")
 	private String phoneNumber;
 	
 	
